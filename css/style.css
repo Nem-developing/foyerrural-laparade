@@ -1,0 +1,28 @@
+/* 
+    Created on : 16 juil. 2020, 13:16:28
+    Author     : Nem-Developing
+*/
+
+.carousel-inner {
+    height: 400px!important;
+    background-color: gray;
+}
+
+
+.facebook {
+    margin-top: 20px;
+}
+
+footer {
+    display: flex; 
+    justify-content: center!important; 
+    align-items: center; 
+    position: fixed; 
+    bottom: 0px; 
+    height: 35px; 
+    width: 100%; 
+    background-color:#2d2d2d; 
+    color: white;
+    padding-top: 14px;
+    text-align:center; 
+}
