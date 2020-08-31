@@ -11,6 +11,7 @@
 
 #page{
     padding-top: 20px!important;
+    padding-bottom: 75px!important
 }
 .actu{
     margin-top: 20px!important;
@@ -28,4 +29,8 @@ footer {
     color: white;
     padding-top: 14px;
     text-align:center; 
+}
+
+.pubfb {
+    padding-top: 17px;
 }
