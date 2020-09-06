@@ -12,3 +12,8 @@
 .col-sm-6 {
     padding-bottom: 100px;
 }
+
+#carte {
+    border: solid;
+    border-color: black;
+}
