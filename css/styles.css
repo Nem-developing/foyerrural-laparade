@@ -4,7 +4,7 @@
 */
 
 .carousel-inner {
-    height: 400px!important;
+    max-height: 500px!important;
     background-color: gray;
 }
 
@@ -23,12 +23,13 @@ footer {
     align-items: center; 
     position: fixed; 
     bottom: 0px; 
-    height: 35px; 
+    height: 50px; 
     width: 100%; 
     background-color:#2d2d2d; 
     color: white;
     padding-top: 14px;
-    text-align:center; 
+    text-align:center;
+    padding-top: 15px;
 }
 
 .pubfb {
