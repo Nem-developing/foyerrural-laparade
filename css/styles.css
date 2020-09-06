@@ -34,3 +34,27 @@ footer {
 .pubfb {
     padding-top: 17px;
 }
+
+
+
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1024px) {
+    #autre {
+        display: none;
+    }
+    
+    .carousel-inner {
+    height: 156px!important;
+    }
+}
+@media screen and (min-width: 1024px){
+    
+    
+    #tel {
+        display: none;
+    }
+   
+    
+    
+    
+}
