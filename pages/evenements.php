@@ -1,3 +1,7 @@
+<?php
+    $lang = $_GET['lang'];
+
+?>
 <!doctype html>
 <html lang="en" class="bg-dark">
     <head>
@@ -11,7 +15,7 @@
         <!-- Menu -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="../index.php">Foyer Rural - Laparade</a>
+            <a class="navbar-brand" href="../index.html<?php if ($lang == "eng") {echo "?lang=eng";}?>">Foyer Rural - Laparade</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,19 +23,38 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.php">Accueil</a>
+                            <a class="nav-link" href="../index.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Accueil";} else if ($lang == "eng") {echo "Home";}?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="evenements.php">Événements</a>
+                        <a class="nav-link" href="evenements.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Événements";} else if ($lang == "eng") {echo "Events";}?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="photos.php">Photos</a>
+                        <a class="nav-link" href="photos.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Photos";} else if ($lang == "eng") {echo "Pictures";}?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="localisation.php">Localisation</a>
+                        <a class="nav-link" href="localisation.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Localisation";} else if ($lang == "eng") {echo "Location";}?></a>
                     </li>
                 </ul>
-                <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb">Suivez-nous sur Facebook !</p></a>
+
+                <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb"><?php if(!$lang) {echo "Suivez-nous sur Facebook !";} else if ($lang == "eng") {echo "Follow us on Facebook !";}?></p></a>
+
+                
+                <?php if(!$lang) {
+                    echo "
+                        <a href='evenements.php?lang=eng'><h3 class='text-white flag'>ENG</h3></a>
+                        <a href='evenements.php?lang=eng'><img src='../images/accueil/british-flag.svg' width='50' class='flag' alt='british-flag'/></a>
+                    ";
+                    
+                } else if ($lang == "eng") {
+                    echo "
+                        <a href='evenements.php'><h3 class='text-white flag-text'>FR</h3></a>
+                        <a href='evenements.php'><img src='../images/accueil/french-flag.svg' width='50' class='flag' alt='french-flag'/></a>
+                        ";
+                }?>
+                
+                    
+                
+
             </div>
         </nav>
 
@@ -58,8 +81,14 @@
                     include '../config/config.php';  // Import des informations de connexion à la base de données.
                     // Établissement de la connexion au serveur mysql. + Corecion de l'erreur d'encodage.
                     $cnx = new PDO("mysql:host=$hotedeconnexion;dbname=$basededonnee", "$utilisateur", "$motdepasse", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-                    // Commande SQL permetant de récupérer la liste des serveurs actifs.
-                    $req = 'SELECT * FROM `actu`;';
+                    
+                    // Selon la langue, nous questionnerons pas la même table.
+                    if(!$lang) {
+                         $req = 'SELECT * FROM `actufr`;';
+                    } else if ($lang == "eng") {
+                         $req = 'SELECT * FROM `actueng`;';
+                    }
+                                        
                     // Envoie au serveur la commande via le biais des informations de connexion.
                     $res = $cnx->query($req);
 
