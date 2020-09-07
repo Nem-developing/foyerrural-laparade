@@ -111,12 +111,20 @@
                                 <tbody>
                                     
                                     <?php
-                    
+                                        
                                         include './config/config.php';  // Import des informations de connexion à la base de données.
                                         // Établissement de la connexion au serveur mysql. + Corecion de l'erreur d'encodage.
                                         $cnx = new PDO("mysql:host=$hotedeconnexion;dbname=$basededonnee", "$utilisateur", "$motdepasse", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-                                        // Commande SQL permetant de récupérer la liste des serveurs actifs.
-                                        $req = 'SELECT * FROM `actu`;';
+                                        
+                                        // Selon la langue, nous questionnerons pas la même table.
+                                        if(!$lang) {
+                                             $req = 'SELECT * FROM `actufr`;';
+                                        } else if ($lang == "eng") {
+                                             $req = 'SELECT * FROM `actueng`;';
+                                        }
+                                                                                
+
+                                        
                                         // Envoie au serveur la commande via le biais des informations de connexion.
                                         $res = $cnx->query($req);
 
@@ -125,11 +133,11 @@
                                             
 
                                         echo "<tr>
-                                            <th scope='row'>$ligne->date</th>
-                                            <th>$ligne->heure</th>
-                                            <td>$ligne->evenement</td>
-                                            <td>$ligne->lieu</td>
-                                        </tr>
+                                                <th scope='row'>$ligne->date</th>
+                                                <th>$ligne->heure</th>
+                                                <td>$ligne->evenement</td>
+                                                <td>$ligne->lieu</td>
+                                              </tr>   
                                         ";   
                                         }
                                     ?>
@@ -179,8 +187,16 @@
                                         include './config/config.php';  // Import des informations de connexion à la base de données.
                                         // Établissement de la connexion au serveur mysql. + Corecion de l'erreur d'encodage.
                                         $cnx = new PDO("mysql:host=$hotedeconnexion;dbname=$basededonnee", "$utilisateur", "$motdepasse", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-                                        // Commande SQL permetant de récupérer la liste des serveurs actifs.
-                                        $req = 'SELECT * FROM `actu`;';
+                                        
+
+                                        // Selon la langue, nous questionnerons pas la même table.
+                                        if(!$lang) {
+                                             $req = 'SELECT * FROM `actufr`;';
+                                        } else if ($lang == "eng") {
+                                             $req = 'SELECT * FROM `actueng`;';
+                                        }
+                                        
+                                        
                                         // Envoie au serveur la commande via le biais des informations de connexion.
                                         $res = $cnx->query($req);
 
