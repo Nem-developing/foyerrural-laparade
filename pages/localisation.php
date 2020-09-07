@@ -12,7 +12,7 @@
         <!-- Menu -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="../index.html">Foyer Rural - La Parade</a>
+            <a class="navbar-brand" href="../index.php">Foyer Rural - La Parade</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,16 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Accueil</a>
+                        <a class="nav-link" href="../index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="evenements.html">Événements</a>
+                        <a class="nav-link" href="evenements.php">Événements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="photos.html">Photos</a>
+                        <a class="nav-link" href="photos.php">Photos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="localisation.html">Localisation</a>
+                        <a class="nav-link" href="localisation.php">Localisation</a>
                     </li>
                 </ul>
                 <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb">Suivez-nous sur Facebook !</p></a>
@@ -63,11 +63,14 @@
 
 
             <center>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45634.62428090107!2d0.4245199075079271!3d44.36822197141853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aaf7f042aa9fbb%3A0x40665174815b3a0!2s47260%20Laparade!5e0!3m2!1sfr!2sfr!4v1599384654279!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" id="carte"></iframe>
+                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d91205.66013771828!2d0.442545!3d44.409016!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aaf7f042aa9fbb%3A0x40665174815b3a0!2s47260%20Laparade!5e0!3m2!1sfr!2sfr!4v1599432484758!5m2!1sfr!2sfr" width="100%" height="300" frameborder="0" class="carte-litle"></iframe>
+                
+                
             </center>
 
         </div>
-
+        
 
 
 

@@ -1,4 +1,4 @@
-/* 
+    /* 
     Created on : 16 juil. 2020, 13:16:28
     Author     : Nem-Developing
 */
@@ -23,7 +23,7 @@ footer {
     align-items: center; 
     position: fixed; 
     bottom: 0px; 
-    height: 75px; 
+    height: 50px; 
     width: 100%; 
     background-color:#2d2d2d; 
     color: white;
@@ -36,8 +36,15 @@ footer {
     padding-top: 17px;
 }
 
+.flag {
+    padding-left: 10px!important;;
+    padding-top: 7px!important;
+}
 
-
+.flag-text {
+    padding-left: 10px!important;;
+    padding-top: 7px!important;
+}
 
 @media only screen and (min-device-width : 0px) and (max-device-width : 1024px) {
     #autre {
@@ -45,17 +52,13 @@ footer {
     }
     
     .carousel-inner {
-    height: 156px!important;
+        height: 156px!important;
     }
 }
 @media screen and (min-width: 1024px){
-    
-    
+     
     #tel {
         display: none;
     }
-   
-    
-    
-    
+       
 }

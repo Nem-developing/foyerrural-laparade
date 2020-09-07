@@ -12,7 +12,7 @@
         <!-- Menu -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="../index.html">Foyer Rural - La Parade</a>
+            <a class="navbar-brand" href="../index.php">Foyer Rural - La Parade</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,16 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Accueil</a>
+                        <a class="nav-link" href="../index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="evenements.html">Événements</a>
+                        <a class="nav-link" href="evenements.php">Événements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="photos.html">Photos</a>
+                        <a class="nav-link" href="photos.php">Photos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="localisation.html">Localisation</a>
+                        <a class="nav-link" href="localisation.php">Localisation</a>
                     </li>
                 </ul>
                 <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb">Suivez-nous sur Facebook !</p></a>

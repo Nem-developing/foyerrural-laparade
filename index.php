@@ -1,3 +1,9 @@
+<?php
+    $lang = $_GET['lang'];
+
+?>
+
+
 <!doctype html>
 <html lang="en" class="bg-dark">
     <head>
@@ -11,7 +17,7 @@
         <!-- Menu -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Foyer Rural - La Parade</a>
+            <a class="navbar-brand" href="index.html<?php if ($lang == "eng") {echo "?lang=eng";}?>">Foyer Rural - Laparade</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,19 +25,38 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Accueil</a>
+                            <a class="nav-link" href="index.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Accueil";} else if ($lang == "eng") {echo "Home";}?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/evenements.html">Événements</a>
+                        <a class="nav-link" href="pages/evenements.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Événements";} else if ($lang == "eng") {echo "Events";}?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/photos.html">Photos</a>
+                        <a class="nav-link" href="pages/photos.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Photos";} else if ($lang == "eng") {echo "Pictures";}?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/localisation.html">Localisation</a>
+                        <a class="nav-link" href="pages/localisation.php<?php if ($lang == "eng") {echo "?lang=eng";}?>"><?php if(!$lang) {echo "Localisation";} else if ($lang == "eng") {echo "Location";}?></a>
                     </li>
                 </ul>
-                <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb">Suivez-nous sur Facebook !</p></a>
+
+                <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb"><?php if(!$lang) {echo "Suivez-nous sur Facebook !";} else if ($lang == "eng") {echo "Follow us on Facebook !";}?></p></a>
+
+                
+                <?php if(!$lang) {
+                    echo "
+                        <a href='index.php?lang=eng'><h3 class='text-white flag'>ENG</h3></a>
+                        <a href='index.php?lang=eng'><img src='images/accueil/british-flag.svg' width='50' class='flag' alt='british-flag'/></a>
+                    ";
+                    
+                } else if ($lang == "eng") {
+                    echo "
+                        <a href='index.php'><h3 class='text-white flag-text'>FR</h3></a>
+                        <a href='index.php'><img src='images/accueil/french-flag.svg' width='50' class='flag' alt='french-flag'/></a>
+                        ";
+                }?>
+                
+                    
+                
+
             </div>
         </nav>
 
@@ -40,7 +65,7 @@
         <div id="carouselExampleInterval" class="carousel slide bg-dark" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                        <img src="images/accueil/20200906_143655.jpg" class="d-block w-100" alt="Image d'illustration des fètes organisées par l'association Foyer Rural de Laprade">
+                    <img src="images/accueil/20200906_143655.jpg" class="d-block w-100" alt="Image d'illustration des fètes organisées par l'association Foyer Rural de Laprade">
                 </div>
                 <div class="carousel-item">
                     <img src="images/accueil/FB_IMG_1599394931190-cp.jpg" class="d-block w-100" alt="Image d'illustration des fètes organisées par l'association Foyer Rural de Laprade">
@@ -58,8 +83,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
-
+                
 
 
         <!-- Séparation de la page en deux -->
@@ -67,10 +91,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h1><ins>Foyer Rural de Laparade</ins></h1>
+                        <h1><ins>Foyer Rural <?php if(!$lang) {echo "de";} else if ($lang == "eng") {echo "of";}?> Laparade</ins></h1>
                         <br>
-                        <h4>Qui sommes-nous ?</h4>
-                        <p>Le Foyer Rural a été créer en 1972 pour réunir les Laparadais autour de manifestaions fédératrices</p>
+                        <h4><?php if(!$lang) {echo "Qui sommes-nous ?";} else if ($lang == "eng") {echo "Who are we?";}?></h4>
+                        <p>Le Foyer Rural a été créer en 1972 pour réunir les Laparadais autour de manifestaions fédératrices. ‌Cet espace convivial permet la rencontre et l’échanges entre les habitants de Laparade et des communes voisines, avec les visiteurs occasionnels, vacanciers, touristes de passage dans un village où le tissu associatif est existant mais où les équipements communaux et le commerce de proximité ne peuvent répondre suffisamment aux besoins de la population en évolution dans son mode de vie. <br><br> Ce projet territorial a pour vocation de mettre en synergie des initiatives locales d’intérêt général, de favoriser des démarches citoyennes collectives, de créer le lien social et intergénérationnel autour de projets collaboratifs (sur le thème de l’éducation, l’environnement, la citoyenneté, la santé, la culture, l’alimentation…) au service de la population, mais aussi de participer au renouveau du dynamisme économique de la ville par la création d’un commerce de proximité.</p>
                         <br>
 
                         <div id="tel">
@@ -85,44 +109,50 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">15 janvier 2021</th>
-                                        <th>De 7h00 à 17h00</th>
-                                        <td>Vide grenier</td>
-                                        <td>Salle des fêtes - Laparade</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">20-21-20 Août 2021</th>
-                                        <th>Dès 21h</th>
-                                        <td>Fête du village --> Défilé de chars, Groupe de musique et Loto. Buvette et restoration sur place.</td>
-                                        <td>Laparade</td>
-                                    </tr>
+                                    
+                                    <?php
+                    
+                                        include './config/config.php';  // Import des informations de connexion à la base de données.
+                                        // Établissement de la connexion au serveur mysql. + Corecion de l'erreur d'encodage.
+                                        $cnx = new PDO("mysql:host=$hotedeconnexion;dbname=$basededonnee", "$utilisateur", "$motdepasse", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+                                        // Commande SQL permetant de récupérer la liste des serveurs actifs.
+                                        $req = 'SELECT * FROM `actu`;';
+                                        // Envoie au serveur la commande via le biais des informations de connexion.
+                                        $res = $cnx->query($req);
+
+                                        // Boucle tant qu'il y a de lignes corespondantes à la requettes
+                                        while ($ligne = $res->fetch(PDO::FETCH_OBJ)) {
+                                            
+
+                                        echo "<tr>
+                                            <th scope='row'>$ligne->date</th>
+                                            <th>$ligne->heure</th>
+                                            <td>$ligne->evenement</td>
+                                            <td>$ligne->lieu</td>
+                                        </tr>
+                                        ";   
+                                        }
+                                    ?>
+                                    
+                                    
                                 </tbody>
                             </table>
 
                         </div>
 
 
+                        <?php
+                        if(!$lang) {
+                            include './includes/index-fr.html';
+                        
+                        } else if ($lang == "eng") {
+                            include './includes/index-eng.html';
+                        }
+                        
+                        ?>
+                        
 
-
-
-                        <h4>Nos activités :</h4>
-                        <p>L'association est divisée en plusieurs sections animées par des responsables, vous trouverez ci-dessous quelques informations à ce sujet.</p>
-                        <h5>Le café associatif (Coup d'R Café)</h5>
-                        <p>Le café associatif vous propose de vous détendre autour de multiples rafraichissements.</p>
-                        <h5>Les lotos</h5>
-                        <p>Les lotos sont toujours animés par la bonne humeur de Francette !</p>
-                        <h5>Les randonnées</h5>
-                        <p>Les randonneés vous permettrons de découvrir les alentours de la Bastide.</p>
-                        <h5>La fête du village (avant dernier week-end d'août)</h5>
-                        <p>La fête du village est un moment unique en son genre, elle rassemble une majorité de Laparadais et ce, avec l'aide précieuse de la Mairie.</p>
-                        <h5>Les rencontres Français-Anglais</h5>
-                        <p>Les rencontres Français-Anglais sont accessibles pour tous ! Venez améliorer votre Anglais ou votre Français !</p>
-                        <h5>La gym (les lundis de 19h à 20h00)</h5>
-                        <p>La gym est animée par un professeur certifié.</p>
-                        <h5>Les vides greniers</h5>
-                        <p>Un bon moment pour faire des affaires !</p>
-
+                        
 
 
                     </div>
@@ -134,7 +164,7 @@
                         <div class="card bg-dark facebook" style="width: 18rem;">
                             <a href="https://www.facebook.com/foyerrural.laparade">
                                 <div class="card-body">
-                                    <h5 class="card-title">Rejoins-Nous sur Facebook</h5>
+                                    <h5 class="card-title"><?php if(!$lang) {echo "Rejoins-nous sur Facebook";} else if ($lang == "eng") {echo "Join Us on Facebook";}?></h5>
                                     <img src='images/accueil/facebook-logo.png'>
                                 </div>
                             </a>
@@ -143,8 +173,25 @@
                         <div class="card bg-dark actu" style="width: 18rem;">
                             <div class="card-body ">
                                 <h5 class="card-title">Actualités :</h5>
-                                <p>31 janvier 2021 : Vide grenier</p>
-                                <p>20/21/22 Août 2021 : Fête du village --> Défilé de chars, Groupe de musique et Loto. Buvette et restoration sur place.</p>
+                                
+                                 <?php
+                    
+                                        include './config/config.php';  // Import des informations de connexion à la base de données.
+                                        // Établissement de la connexion au serveur mysql. + Corecion de l'erreur d'encodage.
+                                        $cnx = new PDO("mysql:host=$hotedeconnexion;dbname=$basededonnee", "$utilisateur", "$motdepasse", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+                                        // Commande SQL permetant de récupérer la liste des serveurs actifs.
+                                        $req = 'SELECT * FROM `actu`;';
+                                        // Envoie au serveur la commande via le biais des informations de connexion.
+                                        $res = $cnx->query($req);
+
+                                        // Boucle tant qu'il y a de lignes corespondantes à la requettes
+                                        while ($ligne = $res->fetch(PDO::FETCH_OBJ)) {
+                                            
+
+                                        echo "<p><span class='font-weight-bold'>$ligne->date - $ligne->heure</span> : $ligne->evenement | Lieu : <u>$ligne->lieu</u></td>";   
+                                        }
+                                    ?>
+                                
                             </div>
                         </div>
                     </div>

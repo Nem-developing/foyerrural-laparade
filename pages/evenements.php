@@ -11,7 +11,7 @@
         <!-- Menu -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="../index.html">Foyer Rural - Laparade</a>
+            <a class="navbar-brand" href="../index.php">Foyer Rural - Laparade</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,16 +19,16 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.html">Accueil</a>
+                        <a class="nav-link" href="../index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="evenements.html">Événements</a>
+                        <a class="nav-link" href="evenements.php">Événements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="photos.html">Photos</a>
+                        <a class="nav-link" href="photos.php">Photos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="localisation.html">Localisation</a>
+                        <a class="nav-link" href="localisation.php">Localisation</a>
                     </li>
                 </ul>
                 <a href="https://www.facebook.com/foyerrural.laparade"><p class="text-primary pubfb">Suivez-nous sur Facebook !</p></a>
@@ -51,34 +51,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">15 janvier 2021</th>
-                        <th>De 7h00 à 17h00</th>
-                        <td>Vide grenier</td>
-                        <td>Salle des fêtes - Laparade</td>
+                    
+                    
+                    <?php
+                    
+                    include '../config/config.php';  // Import des informations de connexion à la base de données.
+                    // Établissement de la connexion au serveur mysql. + Corecion de l'erreur d'encodage.
+                    $cnx = new PDO("mysql:host=$hotedeconnexion;dbname=$basededonnee", "$utilisateur", "$motdepasse", array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+                    // Commande SQL permetant de récupérer la liste des serveurs actifs.
+                    $req = 'SELECT * FROM `actu`;';
+                    // Envoie au serveur la commande via le biais des informations de connexion.
+                    $res = $cnx->query($req);
+
+                    // Boucle tant qu'il y a de lignes corespondantes à la requettes
+                    while ($ligne = $res->fetch(PDO::FETCH_OBJ)) {
+                        
+                        
+                    echo "<tr>
+                        <th scope='row'>$ligne->date</th>
+                        <th>$ligne->heure</th>
+                        <td>$ligne->evenement</td>
+                        <td>$ligne->lieu</td>
                     </tr>
-                    <tr>
-                        <th scope="row">20-21-20 Août 2021</th>
-                        <th>Dès 21h</th>
-                        <td>Fête du village --> Défilé de chars, Groupe de musique et Loto. Buvette et restoration sur place.	</td>
-                        <td>Laparade</td>
-                    </tr>
+                    ";   
+                    }
+                    ?>
                 </tbody>
             </table>
-
-
-
-
-
-
-
         </div>
-
-
-
-
-
-
 
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
