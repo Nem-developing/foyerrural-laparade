@@ -98,14 +98,14 @@
                         <br>
 
                         <div id="tel">
-                            <h4>Nos futurs évenements :</h4>
+                            <h4><?php if(!$lang) {echo "Nos futurs évenements :";} else if ($lang == "eng") {echo "Our futur events:";}?></h4>
                             <table class="table table-dark">
                                 <thead>
                                     <tr>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Heure</th>
-                                        <th scope="col">Événement</th>
-                                        <th scope="col">Lieu</th>
+                                        <th scope="col"><?php if(!$lang) {echo "Heure";} else if ($lang == "eng") {echo "Hour";}?></th>
+                                        <th scope="col"><?php if(!$lang) {echo "Événement";} else if ($lang == "eng") {echo "Events";}?></th>
+                                        <th scope="col"><?php if(!$lang) {echo "Lieux";} else if ($lang == "eng") {echo "Locations";}?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -203,8 +203,13 @@
                                         // Boucle tant qu'il y a de lignes corespondantes à la requettes
                                         while ($ligne = $res->fetch(PDO::FETCH_OBJ)) {
                                             
-
+                                        if(!$lang) {
                                         echo "<p><span class='font-weight-bold'>$ligne->date - $ligne->heure</span> : $ligne->evenement | Lieu : <u>$ligne->lieu</u></td>";   
+                                            
+                                        } else if ($lang == "eng") {
+                                        echo "<p><span class='font-weight-bold'>$ligne->date - $ligne->heure</span> : $ligne->evenement | Location : <u>$ligne->lieu</u></td>";   
+                                            
+                                        }
                                         }
                                     ?>
                                 
