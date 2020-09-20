@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>Événements | Foyer Rural - Laparade</title>
+        <title><?php if(!$lang) {echo "Événements";} else if ($lang == "eng") {echo "Events";}?> | Foyer Rural - Laparade</title>
     </head>
     <body>
         <!-- Menu -->
@@ -68,9 +68,9 @@
                 <thead>
                     <tr>
                         <th scope="col">Date</th>
-                        <th scope="col">Heure</th>
-                        <th scope="col">Événement</th>
-                        <th scope="col">Lieu</th>
+                        <th scope="col"><?php if(!$lang) {echo "Heure";} else if ($lang == "eng") {echo "Hour";}?></th>
+                        <th scope="col"><?php if(!$lang) {echo "Événements";} else if ($lang == "eng") {echo "Events";}?></th>
+                        <th scope="col"><?php if(!$lang) {echo "Lieu";} else if ($lang == "eng") {echo "Location";}?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,9 +84,9 @@
                     
                     // Selon la langue, nous questionnerons pas la même table.
                     if(!$lang) {
-                         $req = 'SELECT * FROM `actufr` where `etat` = "0";;';
+                         $req = 'SELECT * FROM `actufr` where `etat` = "0";';
                     } else if ($lang == "eng") {
-                         $req = 'SELECT * FROM `actueng` where `etat` = "0";;';
+                         $req = 'SELECT * FROM `actueng` where `etat` = "0";';
                     }
                                         
                     // Envoie au serveur la commande via le biais des informations de connexion.
