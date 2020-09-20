@@ -118,9 +118,9 @@
                                         
                                         // Selon la langue, nous questionnerons pas la même table.
                                         if(!$lang) {
-                                             $req = 'SELECT * FROM `actufr`;';
+                                             $req = 'SELECT * FROM `actufr` where `etat` = "0";;';
                                         } else if ($lang == "eng") {
-                                             $req = 'SELECT * FROM `actueng`;';
+                                             $req = 'SELECT * FROM `actueng` where `etat` = "0";;';
                                         }
                                                                                 
 
@@ -191,9 +191,9 @@
 
                                         // Selon la langue, nous questionnerons pas la même table.
                                         if(!$lang) {
-                                             $req = 'SELECT * FROM `actufr`;';
+                                             $req = 'SELECT * FROM `actufr` where `etat` = "0";;';
                                         } else if ($lang == "eng") {
-                                             $req = 'SELECT * FROM `actueng`;';
+                                             $req = 'SELECT * FROM `actueng` where `etat` = "0";;';
                                         }
                                         
                                         
